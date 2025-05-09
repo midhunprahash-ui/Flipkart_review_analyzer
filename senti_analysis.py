@@ -6,11 +6,12 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("Product_Review.csv")
+
 nltk.download("vader_lexicon")
+nltk.download("stopwords")
+
 sia = SentimentIntensityAnalyzer()
 
-
-nltk.download("stopwords")
 stop_words = set(stopwords.words("english"))
 
 
@@ -37,11 +38,13 @@ def get_sentiment(text):
 
 df["Sentiment"] = df["Cleaned_Review"].apply(get_sentiment)
 
+
 df["Sentiment"].value_counts().plot(kind="pie", color=["green", "red", "blue"])
 plt.title("Customer Reviews for Realme XT")
 plt.xlabel("")
 plt.ylabel("Number of Reviews")
 plt.show()
+
 
 df.to_csv("Product_Review_Sentiment.csv", index=False)
 print("Sentiment analysis results saved to 'Product_Review_Sentiment.csv'")
