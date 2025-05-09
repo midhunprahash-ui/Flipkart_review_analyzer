@@ -51,3 +51,10 @@ df = pd.DataFrame(reviews_list)
 
 df.to_csv('Product_Review.csv', index=False)
 print("Reviews successfully saved to 'Product_Review.csv'")
+# Plot sentiment distribution
+df["Sentiment"].value_counts().plot(kind="bar", color=["green", "red", "blue"])
+plt.title("Sentiment Distribution of Flipkart Reviews")
+plt.xlabel("Sentiment")
+plt.ylabel("Number of Reviews")
+plt.show()
+plt.savefig("sentiment_distribution.png")
