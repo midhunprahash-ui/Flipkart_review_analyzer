@@ -58,3 +58,5 @@ plt.xlabel("Sentiment")
 plt.ylabel("Number of Reviews")
 plt.show()
 plt.savefig("sentiment_distribution.png")
+# Plot sentiment distribution
+df["Sentiment"].value_counts().plot(kind="pie", autopct='%1.1f%%', startangle=90, colors=["green", "red", "blue"])

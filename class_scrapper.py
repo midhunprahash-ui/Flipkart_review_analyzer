@@ -53,3 +53,14 @@ driver.quit()
 df = pd.DataFrame({"Class Name": list(unique_classes)})
 df.to_csv("flipkart_review_classes.csv", index=False)
 print("Class names successfully saved to 'flipkart_review_classes.csv'")
+# Print the unique class names
+print("Unique class names found:")
+for class_name in unique_classes:
+    print(class_name)
+# Plot sentiment distribution
+df["Sentiment"].value_counts().plot(kind="bar", color=["green", "red", "blue"])
+plt.title("Sentiment Distribution of Flipkart Reviews")
+plt.xlabel("Sentiment")
+plt.ylabel("Number of Reviews")
+plt.show()
+plt.savefig("sentiment_distribution.png")
