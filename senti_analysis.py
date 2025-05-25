@@ -52,3 +52,4 @@ print()
 print()
 print()print("Sentiment Distribution:")
 print(df["Sentiment"].value_counts())
+# Plot sentiment distribution
